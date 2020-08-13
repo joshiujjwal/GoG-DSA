@@ -9,7 +9,7 @@ def insert_recursive(root,key):
         return BSTNode(key) 
     else:
         if root.data == key:
-            return
+            return root
         if root.data < key:
             root.right = insert(root.right,key)
         else:
