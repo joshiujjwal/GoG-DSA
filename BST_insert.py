@@ -9,11 +9,11 @@ def insert_recursive(root,key):
         return BSTNode(key) 
     else:
         if root.data == key:
-            return root
+            return
         if root.data < key:
-            root.right = insert(root.right,key)
+            root.right = insert_recursive(root.right,key)
         else:
-            root.left = insert(root.left,key)
+            root.left = insert_recursive(root.left,key)
     return root
 
 def insert_iterative(root, key):
@@ -39,9 +39,9 @@ def insert_iterative(root, key):
 
 if __name__ == "__main__":
     bst = BSTNode(15)
-    insert_iterative(bst, 16)
-    insert_iterative(bst, 80)
-    insert_iterative(bst, 12)
-    insert_iterative(bst, 15)
-    print(bst.right.data)
+    insert_recursive(bst, 16)
+    insert_recursive(bst, 80)
+    insert_recursive(bst, 12)
+    insert_recursive(bst, 14)
+    print(bst.left.right.data)
 
